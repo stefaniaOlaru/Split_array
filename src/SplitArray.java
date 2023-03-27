@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SplitArray{
@@ -13,6 +14,18 @@ public class SplitArray{
 
 
     public static boolean  splitArraySameAverage(int[] arr) {
+        if (arr.length > 30) {
+           throw new IllegalArgumentException("Array length must be less than 30");
+        }
+        Arrays.sort(arr);
+        if(arr[arr.length-1] > 10000){
+            throw new IllegalArgumentException("Array elements must be less than 10000");
+        }
+
+        if (arr[0]<0){
+            throw new IllegalArgumentException("Array elements must be greater than 0");
+        }
+
         int n = arr.length;
         int s = sum(arr);
         //1<<n este echivalentul lui 2^n, iar 2^n este numarul de combinatii posibile, adica de submultimi care se pot forma
